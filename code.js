@@ -8,7 +8,7 @@ function getDataFromUrl(url){
 
 
 $("#answers-btn").click(function () {
-    $.get($("answers-link").val,function(data){
+    $.get($("#answers-link").val(),function(data){
         console.log(data);
         //
     });
