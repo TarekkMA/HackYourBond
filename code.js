@@ -33,7 +33,8 @@ $("#answers-btn").click(function () {
                     break;
                 }
             }
-            QA.push({Q:question.textContent,A:answer.textContent});
+
+            QA.push({Q:question.textContent,A:answer ? answer.textContent : "Wow that is strange 😮, no correct answer found !"});
         }
         console.log(QA);
         $("#answers-div").empty();
