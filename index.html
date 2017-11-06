@@ -7,10 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hack Your Bond</title>
     <meta property="og:image" content="https://testourbond.com/images/bond.png">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
     <link rel="stylesheet" href="./css/stylev5.css">
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100" rel="stylesheet">
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39378808-11"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-39378808-11');
+    </script>
+
 </head>
 
 <body>
@@ -30,29 +45,32 @@
                     <div class="pure-u-1">
                         <div class="sec">
                             <h2 class="sec-header zerobotton center">Reveal Right Answers ☑️</h2>
-                                <h3>Link:</h3>                                        
-                                <input id="answers-link" type="text" class="pure-u-1" value=""/>
-                                <br/><br/>
-                                <a id="answers-btn" class="pure-button pure-button-primary full">Lemme see</a>
-                                <br/>
-                                <img id="answers-loading" src="https://i.imgur.com/jmNM9Wh.gif"/>
-                                <br/>
-                                <div id="answers-div"></div>
+                            <h3>Link:</h3>
+                            <input id="answers-link" type="text" class="pure-u-1" value="" />
+                            <br/>
+                            <br/>
+                            <a id="answers-btn" class="pure-button pure-button-primary full">Lemme see</a>
+                            <br/>
+                            <img id="answers-loading" src="https://i.imgur.com/jmNM9Wh.gif" />
+                            <br/>
+                            <div id="answers-div"></div>
                         </div>
                     </div>
                     <div class="" hidden>
                         <div class="sec">
                             <h2 class="sec-header zerobotton center">Submit Score 💯</h2>
-                            <h3>Link:</h3>                                        
-                            <input type="text" class="pure-u-1"/>
-                            <h3>Name:</h3>                                        
-                            <input type="text" class="pure-u-1"/>
-                            <h3>Score:</h3>                                        
-                            <input type="text" class="pure-u-1"/>
-                            <br/><br/>
-                            <a id="score-btn" class="pure-button pure-button-primary full">Submit</a>  
-                            <br/><br/>    
-                            <div id="score-div"></div>                      
+                            <h3>Link:</h3>
+                            <input type="text" class="pure-u-1" />
+                            <h3>Name:</h3>
+                            <input type="text" class="pure-u-1" />
+                            <h3>Score:</h3>
+                            <input type="text" class="pure-u-1" />
+                            <br/>
+                            <br/>
+                            <a id="score-btn" class="pure-button pure-button-primary full">Submit</a>
+                            <br/>
+                            <br/>
+                            <div id="score-div"></div>
                         </div>
                     </div>
                 </div>
@@ -64,8 +82,8 @@
 </body>
 
 <footer>
-    <script src="code.js"></script>    
-        
+    <script src="code.js"></script>
+
     <p class="center">
         <a>This tool made by TarekkMA</a>
         <br/>
