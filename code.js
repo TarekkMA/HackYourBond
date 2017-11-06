@@ -1,4 +1,3 @@
-headers['Access-Control-Allow-Origin'] = 'https://testourbond.com'
 
 function getDataFromUrl(url){
     return {
