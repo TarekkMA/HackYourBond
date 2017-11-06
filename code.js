@@ -1,3 +1,4 @@
+headers['Access-Control-Allow-Origin'] = 'https://testourbond.com'
 
 function getDataFromUrl(url){
     return {
@@ -8,25 +9,8 @@ function getDataFromUrl(url){
 
 
 $("#answers-btn").click(function () {
-
-    $.ajax({
-        type: 'GET',
-        url: $("answers-link").val,
-        data: null,
-        dataType: 'jsonp',
-        success: function(response) {
-    
-        console.log(response);
-    
-      },
-      xhrFields: {
-        withCredentials: true
-      },
-      error: function(error) {
-    
-        console.log('ERROR:', error);
-    
-      }
+    $.get($("answers-link").val,function(data){
+        console.log(data);
     });
 });
 
