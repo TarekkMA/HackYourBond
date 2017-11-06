@@ -1,52 +1,52 @@
-var loadingAnswers = false; 
+var loadingAnswers = false;
 
-$("#answers-loading").hide();
+$('#answers-loading').hide();
 
 
-$.ajaxPrefilter( function (options) {
+$.ajaxPrefilter( function(options) {
     if (options.crossDomain && jQuery.support.cors) {
-      var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+      let http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
       options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
-      //options.url = "http://cors.corsproxy.io/url=" + options.url;
+      // options.url = "http://cors.corsproxy.io/url=" + options.url;
     }
   });
 
 
-$("#answers-btn").click(function () {
-    if(loadingAnswers)return;
-    $("#answers-div").empty();
+$('#answers-btn').click(function() {
+    if (loadingAnswers) return;
+    $('#answers-div').empty();
     loadingAnswers = true;
-    $("#answers-loading").show();    
-    $.get($("#answers-link").val(),function(data){
-        var QA = [];
+    $('#answers-loading').show();
+    $.get($('#answers-link').val(), function(data) {
+        let QA = [];
 
-        var parser = new DOMParser();
-        var doc = parser.parseFromString(data, "text/html");
-        var questions =  doc.getElementsByClassName("question hidden unanswered");
-        for(var i = 0;i<questions.length;i++){
-            var question  = questions[i].getElementsByTagName("h3")[0];
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(data, 'text/html');
+        let questions = doc.getElementsByClassName('question hidden unanswered');
+        for (var i = 0; i<questions.length; i++) {
+            let question = questions[i].getElementsByTagName('h3')[0];
             var answer;
-            var answers = questions[i].getElementsByTagName("td");
-            for(var j = 0;j<answers.length;j++){
-                if(answers[j].className == "answer correct"){
+            let answers = questions[i].getElementsByTagName('td');
+            for (let j = 0; j<answers.length; j++) {
+                if (answers[j].className == 'answer correct') {
                     answer = answers[j];
                     break;
                 }
             }
 
-            QA.push({Q:question.textContent,A:answer ? answer.textContent : "Wow that is strange 😮, no correct answer found !"});
+            QA.push({Q: question.textContent, A: answer ? answer.textContent : 'Wow that is strange 😮, no correct answer found !'});
         }
         console.log(QA);
-        $("#answers-div").empty();
-        for(var i = 0;i<QA.length;i++){
-            $("#answers-div").append("<br/><br/><h2>"+QA[i].Q+"<h2/><h3>"+QA[i].A+"<h3/>");
+        $('#answers-div').empty();
+        for (var i = 0; i<QA.length; i++) {
+            $('#answers-div').append('<br/><br/><h2>'+QA[i].Q+'<h2/><h3>'+QA[i].A+'<h3/>');
         }
-        
-        $("#answers-loading").hide();        
+
+        $('#answers-loading').hide();
         loadingAnswers = false;
     });
 });
 
-$("#score-btn").click(function () {
+$('#score-btn').click(function() {
 
 });
