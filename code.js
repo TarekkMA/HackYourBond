@@ -14,6 +14,9 @@ $.ajaxPrefilter( function(options) {
 
 $('#answers-btn').click(function() {
     if (loadingAnswers) return;
+    gtag('event', 'answers-btn', {
+        'link': $('#answers-link').val()
+    });
     $('#answers-div').empty();
     loadingAnswers = true;
     $('#answers-loading').show();
@@ -33,9 +36,17 @@ $('#answers-btn').click(function() {
                     break;
                 }
             }
-
+            if(!answer){
+                gtag('event', 'no-answer', {
+                    'link': $('#answers-link').val()
+                });
+            } 
             QA.push({Q: question.textContent, A: answer ? answer.textContent : 'Wow that is strange 😮, no correct answer found !'});
         }
+        gtag('event', 'answer', {
+            'link': $('#answers-link').val(),
+            'QA':QA
+        });
         console.log(QA);
         $('#answers-div').empty();
         for (var i = 0; i<QA.length; i++) {
